@@ -1,21 +1,21 @@
-CREATE TABLE faculty (
-    faculty_name VARCHAR(50) PRIMARY KEY,
-    faculty_dean VARCHAR(50) NOT NULL
+create table faculty (
+    faculty_name VARCHAR(50) primary key,
+    faculty_dekan VARCHAR(50) not null
 );
 
-INSERT INTO faculty(faculty_name, faculty_dean) VALUES
+insert into faculty (faculty_name, faculty_dekan) values
 ('ИВТ', 'Петров П.П.'),
 ('Экономика', 'Павлова О.И.');
 
-CREATE TABLE Student (
-    Student_ID INT PRIMARY KEY,
-    full_name VARCHAR(50) NOT NULL,
-    group_number VARCHAR(5) NOT NULL,
-    faculty_name VARCHAR(50) NOT NULL,
-    FOREIGN KEY (faculty_name) REFERENCES faculty(faculty_name)
+create table Student3 (
+    Student_ID int primary key,
+    full_name VARCHAR(50) not null,
+    group_number VARCHAR(5) not null,
+    faculty_name VARCHAR(50) not null,
+    foreign key (faculty_dekan) references faculty(faculty_dekan)
 );
 
-INSERT INTO Student (Student_ID, full_name, group_number, faculty_name) VALUES
-(1, 'Иванов А.А.', '101', 'ИВТ'),
-(2, 'Сидорова Б.Б.', '102', 'Экономика'),
-(3, 'Кузнецов В.В.', '101', 'ИВТ');
+insert into Student (Student_ID, full_name, group_number, faculty_name faculty_dekan) values
+(1, 'Иванов А.А.', '101', 'ИВТ', 'Петров П.П.'),
+(2, 'Сидорова Б.Б.', '102', 'Экономика', 'Павлова О.И.'),
+(3, 'Кузнецов В.В.', '101', 'ИВТ', 'Петров П.П');
